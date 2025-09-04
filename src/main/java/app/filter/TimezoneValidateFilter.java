@@ -41,7 +41,7 @@ public class TimezoneValidateFilter extends HttpFilter {
                 }
             };
             chain.doFilter(wrapped, resp);
-        } catch (DateTimeException _) {
+        } catch (DateTimeException exception) {
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             resp.setContentType("text/html; charset=UTF-8");
             resp.getWriter().write("<h2>Invalid timezone: " + tzParam + "</h2>");
